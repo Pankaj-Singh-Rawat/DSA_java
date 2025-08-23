@@ -14,10 +14,9 @@ public class TwoPointer {
         int[] num = { 2, 7, 11, 15 };
         int target = 9;
 
-        System.out.println(problem1(num, target));
-
+        System.out.println(Arrays.toString(problem1(num, target)));
     }
-    
+
     public static int[] problem1(int[] numbers, int target) {
         int left = 0;
         int right = numbers.length - 1;
@@ -35,4 +34,5 @@ public class TwoPointer {
         }
         return new int[] {};
     }
+
 }
