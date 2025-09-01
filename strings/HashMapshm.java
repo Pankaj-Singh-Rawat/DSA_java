@@ -1,7 +1,10 @@
 package strings;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-
+import java.util.HashSet;
+import java.util.List;
 
 public class HashMapshm {
     public static void main(String[] args) {
@@ -13,9 +16,47 @@ public class HashMapshm {
         problem1();
 
         problem2("Pankaj");
+
+        String[] input = { "eat", "tea", "tan", "ate", "nat", "bat" };
+        System.out.println(problem3(input));
     }
 
-    public static HashMap<Character,Integer> problem2(String s) {
+    private static List<List<String>> problem3(String[] input) {
+        // Question 3: Anagram Grouping
+
+        // Anagrams are words or phrases formed by rearranging the letters of another.
+        // For example, "listen" and "silent" are anagrams.
+
+        // Task:
+        // Given an array of strings, group the anagrams together. The order of the
+        // output does to matter.
+
+        // Example:
+
+        // Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+        // Output: [["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
+
+        // LinkedList list = new LinkedList<>();
+        HashMap<String, List<String>> map = new HashMap<>();
+
+        for (String s : input) {
+            char[] charArray = s.toCharArray(); // converted string to char Array
+            Arrays.sort(charArray); //sorted it
+
+            String sortedWord = new String(charArray); // converted sorted char array back to string
+
+            if(!map.containsKey(sortedWord)){
+                map.put(sortedWord, new ArrayList<>());
+            }
+            map.get(sortedWord).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+
+    }
+
+    public static HashMap<Character, Integer> problem2(String s) {
         // Question 2: Frequency Counting
 
         // One of the most common and powerful uses of a HashMap is to count the
