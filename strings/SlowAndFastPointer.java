@@ -20,6 +20,52 @@ public class SlowAndFastPointer {
         // reaches a certain condition (e.g., a fast pointer reaching the end of a list
         // to find the middle element).
 
-        
+        // Question 1 (Cycle Detection)
+        // Task:
+        // You're given the head of a singly linked list. Your task is to determine if
+        // it has a cycle. Return true if it does, and false if it doesn't.
+
+        // Example:
+        // Input: head = [3, 2, 0, -4], where the last node links back to the node with
+        // value 2.
+        // Output: true
+
+        // Input: head = [1, 2], where the last node links to null.
+        // Output: false
+
+        ListNode head1 = new ListNode(3);
+        head1.next = new ListNode(2);
+        head1.next.next = new ListNode(0);
+        head1.next.next.next = new ListNode(-4);
+        head1.next.next.next.next = head1.next;
+
+        System.out.println("has cycle? : " + problem1(head1));
+    }
+
+
+    private static boolean problem1(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while( fast!= null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
+
+class ListNode{
+    int val;
+    ListNode next;
+    ListNode(int x){
+        val = x;
+        next = null;
+    }
+}
+
