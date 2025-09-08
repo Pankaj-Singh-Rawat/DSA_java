@@ -25,6 +25,21 @@ public class intro {
     }
 
     public static List<String> generateParenthesis(int n) {
+        // Question 1: Generating Parentheses
+
+        // Problem: Given n, generate all combinations of well-formed parentheses.
+
+        // The Core Idea: Think of this as building a string, character by character. At
+        // each step, you have a choice: add an open parenthesis ( or a close
+        // parenthesis ). But these choices are limited by two simple rules:
+
+        // You can only add an open parenthesis ( if you haven't used up all n of them
+        // yet.
+
+        // You can only add a close parenthesis ) if you have more open parentheses
+        // currently in your string than close parentheses. This prevents a ) from
+        // appearing before its matching (.
+
         List<String> result = new ArrayList<>();
         backtrack(result, "", 0, 0, n);
         return result;
