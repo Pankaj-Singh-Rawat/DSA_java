@@ -1,6 +1,10 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 import javax.xml.stream.events.Characters;
 
@@ -60,6 +64,34 @@ public class LeetCode {
         // Explanation: The answer is "abc", with the length of 3.
         System.out.println(lengthOfLongestSubstring("   "));
 
+
+        // input - "iamyymai"
+        System.out.println(isPallindrome());
+
+    }
+
+    public static boolean isPallindrome(){
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter a String: ");
+        String in = input.nextLine();
+
+        int left = 0 ;
+        int right = in.length() - 1;
+
+        while (left < right ){
+
+            if(in.charAt(left) != in.charAt(right)){
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+
+        return true;
+
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -67,13 +99,13 @@ public class LeetCode {
         int maxLen = 0;
         int left = 0;
 
-        if(s == null || s.length() == 0){
-            return 0 ;
+        if (s == null || s.length() == 0) {
+            return 0;
         }
 
         for (int i = 0; i < s.length(); i++) {
-            
-            if(set.contains(s.charAt(i))){
+
+            if (set.contains(s.charAt(i))) {
                 set.remove(s.charAt(left));
                 left++;
             }
