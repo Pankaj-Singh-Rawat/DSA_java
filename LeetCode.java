@@ -5,6 +5,7 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.StreamHandler;
 
 import javax.xml.stream.events.Characters;
 
@@ -26,9 +27,9 @@ public class LeetCode {
         // Input: nums1 = [1,2], nums2 = [3,4]
         // Output: 2.50000
         // Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
-        int[] nums1 = { 1, 2 };
-        int[] nums2 = { 3, 4 };
-        System.out.println(findMedianSortedArrays(nums1, nums2));
+        // int[] nums1 = { 1, 2 };
+        // int[] nums2 = { 3, 4 };
+        // System.out.println(findMedianSortedArrays(nums1, nums2));
 
         // 14. Longest Common Prefix
         // Easy
@@ -47,8 +48,8 @@ public class LeetCode {
         // Input: strs = ["dog","racecar","car"]
         // Output: ""
         // Explanation: There is no common prefix among the input strings.
-        String[] strs = { "flower", "flow", "flight" };
-        System.out.println(longestCommonPrefix(strs));
+        // String[] strs = { "flower", "flow", "flight" };
+        // System.out.println(longestCommonPrefix(strs));
 
         // 3. Longest Substring Without Repeating Characters
         // Medium
@@ -62,11 +63,38 @@ public class LeetCode {
         // Input: s = "abcabcbb"
         // Output: 3
         // Explanation: The answer is "abc", with the length of 3.
-        System.out.println(lengthOfLongestSubstring("   "));
+        // System.out.println(lengthOfLongestSubstring("   "));
 
 
         // input - "iamyymai"
-        System.out.println(isPallindrome());
+        // System.out.println(isPallindrome());
+
+        System.out.println(isStrictlyPalindromic(9));
+        
+    }
+    
+    public static boolean isStrictlyPalindromic(int n) {
+        StringBuilder sb = new StringBuilder();
+        int rem = 0;
+
+        while(n > 0){
+            rem = n % 2;
+            n /= 2;
+            sb.append(rem);
+        }
+
+        int left = 0;
+        int right = sb.length() -1 ;
+
+        while (left < right){
+            if(sb.charAt(left) != sb.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
 
     }
 

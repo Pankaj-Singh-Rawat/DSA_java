@@ -1,7 +1,9 @@
 package Backtracking;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class intro {
     // What is Backtracking?
@@ -18,9 +20,35 @@ public class intro {
     // Choices at each state that lead to new states.
     // Constraints that determine whether a choice is valid.
     // A goal that indicates a solution has been found.
-
+    
     public static void main(String[] args) {
+        // question 1
         System.out.println(generateParenthesis(3));
+
+        // question 2
+        int[] nums = { 1, 2, 3 };
+        System.out.println(generateSubSets(nums));
+
+    }
+
+    public static List<List<Integer>> generateSubSets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        subsets_backtracking(result, new ArrayList<>(), nums, 0);
+        return result;
+    }
+
+    public static void subsets_backtracking(List<List<Integer>> result, List<Integer> currentSubset, int[] nums,
+            int start) {
+
+        result.add(new ArrayList<>(currentSubset));
+
+        for (int i = start; i < nums.length; i++) {
+            currentSubset.add(nums[i]); // adds element by index
+
+            subsets_backtracking(result, currentSubset, nums, i + 1); // works with the element added
+
+            currentSubset.remove(currentSubset.size() - 1); //decreases element from subset
+        }
 
     }
 
