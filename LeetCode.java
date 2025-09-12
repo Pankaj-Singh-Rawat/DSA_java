@@ -2,7 +2,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
-
 import javax.xml.stream.events.Characters;
 
 public class LeetCode {
@@ -59,31 +58,150 @@ public class LeetCode {
         // Input: s = "abcabcbb"
         // Output: 3
         // Explanation: The answer is "abc", with the length of 3.
-        // System.out.println(lengthOfLongestSubstring("   "));
-
+        // System.out.println(lengthOfLongestSubstring(" "));
 
         // input - "iamyymai"
         // System.out.println(isPallindrome());
 
-        System.out.println(isStrictlyPalindromic(9));
-        
+        // System.out.println(isStrictlyPalindromic(9));
+
+        // 3227. Vowels Game in a String
+        // Medium
+
+        // Topics
+        // premium lock icon
+        // Companies
+
+        // Hint
+        // Alice and Bob are playing a game on a string.
+
+        // You are given a string s, Alice and Bob will take turns playing the following
+        // game where Alice starts first:
+
+        // On Alice's turn, she has to remove any non-empty substring from s that
+        // contains an odd number of vowels.
+        // On Bob's turn, he has to remove any non-empty substring from s that contains
+        // an even number of vowels.
+        // The first player who cannot make a move on their turn loses the game. We
+        // assume that both Alice and Bob play optimally.
+
+        // Return true if Alice wins the game, and false otherwise.
+
+        // The English vowels are: a, e, i, o, and u.
+
+        // Example 1:
+
+        // Input: s = "leetcoder"
+
+        // Output: true
+        // System.out.println(doesAliceWin("leetcoder"));
+
+        // 53. Maximum Subarray
+        // Medium
+
+        // Topics
+        // premium lock icon
+        // Companies
+        // Given an integer array nums, find the subarray with the largest sum, and
+        // return its sum.
+
+        // Example 1:
+
+        // Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+        // Output: 6
+        // Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+        // int[] num = { 5, 4, -1, 7, 8 };
+        // System.out.println(maxSubArray(num));
+
+        // 125. Valid Palindrome
+        // Easy
+
+        // Topics
+        // premium lock icon
+        // Companies
+        // A phrase is a palindrome if, after converting all uppercase letters into
+        // lowercase letters and removing all non-alphanumeric characters, it reads the
+        // same forward and backward. Alphanumeric characters include letters and
+        // numbers.
+
+        // Given a string s, return true if it is a palindrome, or false otherwise.
+
+        // Example 1:
+
+        // Input: s = "A man, a plan, a canal: Panama"
+        // Output: true
+        // Explanation: "amanaplanacanalpanama" is a palindrome.
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+
     }
-    
+
+    public static boolean isPalindrome(String s) {
+        String cString = s.replaceAll("[^a-zA-Z0-9]","" ).toLowerCase();
+
+        int left = 0 ;
+        int right = cString.length()-1;
+
+        while (left < right){
+            if(cString.charAt(left) != cString.charAt(right)){
+                return false;
+            }
+
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    // use kaydens algo
+    public static int maxSubArray(int[] nums) {
+
+        int curSum = nums[0];
+        int oSum = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            if (curSum > 0) {
+                curSum += nums[i];
+            } else {
+                curSum = nums[i];
+            }
+
+            if (curSum > oSum) {
+                oSum = curSum;
+            }
+        }
+
+        return oSum;
+    }
+
+    public static boolean doesAliceWin(String s) {
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a' ||
+                    s.charAt(i) == 'e' ||
+                    s.charAt(i) == 'i' ||
+                    s.charAt(i) == 'o' ||
+                    s.charAt(i) == 'u') {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean isStrictlyPalindromic(int n) {
         StringBuilder sb = new StringBuilder();
         int rem = 0;
 
-        while(n > 0){
+        while (n > 0) {
             rem = n % 2;
             n /= 2;
             sb.append(rem);
         }
 
         int left = 0;
-        int right = sb.length() -1 ;
+        int right = sb.length() - 1;
 
-        while (left < right){
-            if(sb.charAt(left) != sb.charAt(right)){
+        while (left < right) {
+            if (sb.charAt(left) != sb.charAt(right)) {
                 return false;
             }
             left++;
@@ -94,19 +212,19 @@ public class LeetCode {
 
     }
 
-    public static boolean isPallindrome(){
+    public static boolean isPallindrome() {
 
         Scanner input = new Scanner(System.in);
 
         System.out.println("Enter a String: ");
         String in = input.nextLine();
 
-        int left = 0 ;
+        int left = 0;
         int right = in.length() - 1;
 
-        while (left < right ){
+        while (left < right) {
 
-            if(in.charAt(left) != in.charAt(right)){
+            if (in.charAt(left) != in.charAt(right)) {
                 return false;
             }
 
