@@ -1,7 +1,10 @@
 package stacks;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 public class Ques {
 
@@ -10,7 +13,7 @@ public class Ques {
         int[] nums1 = {4, 1, 2}, nums2 = {1, 3, 4, 2};
         System.out.println(NextGreaterElement(nums1, nums2));
     }
-    private static List<Integer> NextGreaterElement(int[] nums1, int[] nums2) {
+    private static String NextGreaterElement(int[] nums1, int[] nums2) {
         // Question 2 (Next Greater Element I)
 
         // Now let's try a slightly more advanced problem that uses a stack.
@@ -29,10 +32,25 @@ public class Ques {
 
         // Output: [-1, 3, -1]
 
-        List<Integer> result = new ArrayList<>();
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < nums2.length; i++) {
+            while(!stack.isEmpty() && nums2[i] > stack.peek()){
+                hm.put(stack.pop(), nums2[i]);
+            }
+
+            stack.push(nums2[i]);
+        }
+
+        int[] result = new int[nums1.length];
+
+        for (int i = 0; i < nums1.length; i++) {
+            result[i] = hm.getOrDefault(nums1[i], -1);
+        }
 
 
 
-        return result;
+        return Arrays.toString(result);
     }
 }
