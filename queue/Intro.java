@@ -21,4 +21,89 @@ public class Intro {
     // used in scenarios where the order of processing is important, such as
     // managing print jobs, handling network requests, or implementing breadth-first
     // search (BFS) algorithms.
+
+    // implemetation of queue using array
+    int[] arr;
+    int front = 0;
+    int rear = -1;
+    int size;
+
+    Intro(int n) {
+        arr = new int[n];
+        size = n;
+    }
+
+    void enqueue(int x) {
+        if (rear == size - 1) {
+            System.out.println("Queue is Full.");
+        } else {
+            arr[++rear] = x;
+        }
+    }
+
+    void dequeue() {
+        if (front > rear) {
+            System.out.println("Queue is Empty.");
+        } else {
+            System.out.println("Dequeued: " + arr[front++]);
+        }
+    }
+
+    void display() {
+        for (int i = front; i <= rear; i++) {
+            System.out.println(arr[i] + " ");
+        }
+    }
+
+    
+    // // Linked List based queue Implementation
+    // Node front = null, rear = null;
+
+    // void enqueue(int x) {
+    //     Node n = new Node(x);
+    //     if (rear == null) {
+    //         front = rear = n;
+    //     } else {
+    //         rear.next = n;
+    //         rear = n;
+    //     }
+    // }
+
+    // void dequeue(){
+    //     if(front == null){
+    //         System.out.println("Queue Empty");
+    //     }else{
+    //         System.out.println("Dequeued: " + front.data);
+    //         front = front.next;
+    //         if(front == null){
+    //             rear = null;
+    //         }
+    //     }
+    // }
+
+    // void display(){
+    //     for (Node t = front; t != null; t = t.next) {
+    //         System.out.println(t.data + " ");
+    //     }
+    // }
+
+    public static void main(String[] args) {
+        Intro s = new Intro(5);
+        s.enqueue(10);
+        s.enqueue(21);
+        s.display();
+
+        s.dequeue();
+        s.display();
+
+    }
+}
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int d) {
+        data = d;
+    }
 }
