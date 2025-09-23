@@ -20,3 +20,13 @@ public class Problems {
     // / \ / \
     // 1 3 6 9
 }
+
+class TreeNode{
+    int value;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode(int value){
+        this.value = value;
+    }
+}
