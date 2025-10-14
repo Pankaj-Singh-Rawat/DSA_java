@@ -1,3 +1,4 @@
+package Serialisation;
 public class Serialisation {
     /*
      * Serialisation: Process of converting a a object into byte stream
@@ -7,4 +8,11 @@ public class Serialisation {
      * Deserialisation: The process of converting a byte stream back into object
      * Eg: Loading a saved file
      */
+    public static void main(String[] args) {
+        User user = new User();
+        user.name = "Bro";
+        user.pass = "broCode";
+
+        user.sayHello();
+    }
 }
