@@ -11,7 +11,12 @@ class Main {
         list.insertLast(99);
 
         list.insert(100, 3);
-        
+        list.display();
+
+        list.deleteFirst();
+        list.display();
+
+        System.out.println(list.deleteLast());
         list.display();
     }
 }
