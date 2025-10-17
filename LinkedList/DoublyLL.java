@@ -32,7 +32,34 @@ public  class DoublyLL {
 
         last.next = node;
         node.prev = last;
-        
+
+    }
+
+    public Node find(int value){
+        Node node = head;
+        while(node != null){
+            if(node.val == value){
+                return node;
+            }
+            node = node.next;
+        }
+        return node;
+    }
+
+    public void insert(int after, int val){
+        Node p = find(after);
+        if(p == null){
+            System.out.println("Node doesn't exist.");
+            return;
+        }
+
+        Node node = new Node(val);
+        node.next = p.next;
+        p.next = node;
+        node.prev = p;
+        if(node.next != null){
+            node.next.prev = node;
+        } 
     }
 
     public void display(){
