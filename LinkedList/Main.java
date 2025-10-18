@@ -29,5 +29,12 @@ class Main {
         list.insertFirst(17);
 
         list.display();
+
+        list.insertLast(99);
+        list.display();
+
+        list.insert(8, 65);
+        list.display();
+
     }
 }
