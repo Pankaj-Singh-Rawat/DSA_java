@@ -22,18 +22,26 @@ class Main {
         // System.out.println(list.delete(2));
         // list.display();
 
-        DoublyLL list = new DoublyLL();
-        list.insertFirst(3);
-        list.insertFirst(2);
-        list.insertFirst(8);
-        list.insertFirst(17);
+        // DoublyLL list = new DoublyLL();
+        // list.insertFirst(3);
+        // list.insertFirst(2);
+        // list.insertFirst(8);
+        // list.insertFirst(17);
 
-        list.display();
+        // list.display();
 
-        list.insertLast(99);
-        list.display();
+        // list.insertLast(99);
+        // list.display();
 
-        list.insert(8, 65);
+        // list.insert(8, 65);
+        // list.display();\
+
+        CLL list = new CLL();
+        list.insert(8);
+        list.insert(45);
+        list.insert(12);
+        list.insert(81);
+
         list.display();
 
     }
