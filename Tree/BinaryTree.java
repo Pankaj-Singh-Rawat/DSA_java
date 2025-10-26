@@ -94,7 +94,7 @@ class BinaryTree {
     }
 
 //    pre-order traversal
-    public void preOrder(Node node) {
+    private void preOrder(Node node) {
         if (node == null) {
             return;
         }
@@ -103,5 +103,21 @@ class BinaryTree {
         preOrder(node.left);
         preOrder(node.right);
     }
+
+    public void inOrder(){
+        inOrder(root);
+    }
+
+    private void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.print(node.value + " ");
+        inOrder(node.right);
+    }
+
+
 
 }
