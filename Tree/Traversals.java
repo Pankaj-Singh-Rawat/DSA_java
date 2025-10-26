@@ -15,6 +15,12 @@ public class Traversals {
          3. Post-order Traversal: Left -> Right -> Node
             Used when we need to delete from a binary tree or
             when bottom up calculation is used.
+
+
+            Techniques:
+            BFS & DFS: Breadth first search & Depth first search
+            BFT & DFT: Breadth first traversal & Depth first traversal
+
          */
     }
 }
