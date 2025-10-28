@@ -1,24 +1,7 @@
 package Tree;
 
-import java.lang.Math;
-
-        /*
-        AVL Tree: Used to balance unbalanced trees.
-            1. Insert node N normally.
-            2. Start from node N and find the node that makes the tree Unbalanced.
-             When found bottom up.
-            3. Using one of the four rules Rotate the tree.
-
-        Four Cases:
-            Left-Left: Rotate the graph to right.
-            Left-Right: Left rotate on child class then Right rotate on parent class
-            Right-Right: Left rotate parent class
-            Right-Left: Right rotate on child then left rotate on parent class
-         */
-
-
 class AVL {
-    // Binary Search Trees
+
     public class Node {
         private int value;
         private Node left;
@@ -43,17 +26,11 @@ class AVL {
     public int height() {
         return height(root);
     }
-
-    public int height(Node node) {
+    private int height(Node node) {
         if (node == null) {
             return -1;
         }
-
         return node.height;
-    }
-
-    public boolean isEmpty() {
-        return root == null;
     }
 
     public void insert(int value) {
@@ -63,44 +40,43 @@ class AVL {
     private Node insert(int value, Node node) {
         if (node == null) {
             node = new Node(value);
-            node.height = 0;
             return node;
         }
+
         if (value < node.value) {
             node.left = insert(value, node.left);
-        } else if (value > node.value) {
+        }
+
+        if (value > node.value) {
             node.right = insert(value, node.right);
-        } else {
-            return node;
         }
 
         node.height = Math.max(height(node.left), height(node.right)) + 1;
-
         return rotate(node);
     }
 
     private Node rotate(Node node) {
-        if ((height(node.left) - height(node.right)) > 1) {
+        if (height(node.left) - height(node.right) > 1) {
             // left heavy
-            if ((height(node.left.left) - height(node.left.right)) > 0) {
+            if(height(node.left.left) - height(node.left.right) > 0) {
                 // left-left case
                 return rightRotate(node);
             }
-            if ((height(node.left.left) - height(node.left.right)) < 0) {
-                // left-right case
+            if(height(node.left.left) - height(node.left.right) < 0) {
+                // left right case
                 node.left = leftRotate(node.left);
                 return rightRotate(node);
             }
         }
 
-        if ((height(node.left) - height(node.right)) < -1) {
+        if (height(node.left) - height(node.right) < -1) {
             // right heavy
-            if ((height(node.right.left) - height(node.right.right)) < 0) {
+            if(height(node.right.left) - height(node.right.right) < 0) {
                 // right-right case
                 return leftRotate(node);
             }
-            if ((height(node.right.left) - height(node.right.right)) > 0) {
-                // right-left case
+            if(height(node.right.left) - height(node.right.right) > 0) {
+                // left-right case
                 node.right = rightRotate(node.right);
                 return leftRotate(node);
             }
@@ -109,43 +85,43 @@ class AVL {
         return node;
     }
 
-    private Node rightRotate(Node p) {
+    public Node rightRotate(Node p) {
         Node c = p.left;
         Node t = c.right;
 
         c.right = p;
         p.left = t;
 
-        p.height = Math.max(height(p.left), height(p.right)) + 1;
-        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
 
         return c;
     }
 
-    private Node leftRotate(Node c) {
+    public Node leftRotate(Node c) {
         Node p = c.right;
         Node t = p.left;
 
         p.left = c;
         c.right = t;
 
-        p.height = Math.max(height(p.left), height(p.right)) + 1;
-        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
 
         return p;
     }
 
     public void populate(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            insert(nums[i]);
+            this.insert(nums[i]);
         }
     }
 
-    public void populateSorted(int[] nums) {
-        populateSorted(nums, 0, nums.length);
+    public void populatedSorted(int[] nums) {
+        populatedSorted(nums, 0, nums.length);
     }
 
-    private void populateSorted(int[] nums, int start, int end) {
+    private void populatedSorted(int[] nums, int start, int end) {
         if (start >= end) {
             return;
         }
@@ -153,9 +129,8 @@ class AVL {
         int mid = (start + end) / 2;
 
         this.insert(nums[mid]);
-        populateSorted(nums, start, mid);
-        populateSorted(nums, mid + 1, end);
-
+        populatedSorted(nums, start, mid);
+        populatedSorted(nums, mid + 1, end);
     }
 
     public void display() {
@@ -166,12 +141,13 @@ class AVL {
         if (node == null) {
             return;
         }
+        System.out.println(details + node.value);
+        display(node.left, "Left child of " + node.value + " : ");
+        display(node.right, "Right child of " + node.value + " : ");
+    }
 
-        System.out.println(details + node.getValue());
-
-        display(node.left, "Left child of " + node.getValue() + ": ");
-        display(node.right, "Right child of " + node.getValue() + ": ");
-
+    public boolean isEmpty() {
+        return root == null;
     }
 
     public boolean balanced() {
@@ -183,7 +159,6 @@ class AVL {
             return true;
         }
         return Math.abs(height(node.left) - height(node.right)) <= 1 && balanced(node.left) && balanced(node.right);
-
     }
-}
 
+}
