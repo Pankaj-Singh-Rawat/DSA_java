@@ -40,6 +40,10 @@ class AVL {
 
     }
 
+    public int height() {
+        return height(root);
+    }
+
     public int height(Node node) {
         if (node == null) {
             return -1;
@@ -59,18 +63,20 @@ class AVL {
     private Node insert(int value, Node node) {
         if (node == null) {
             node = new Node(value);
+            node.height = 0;
             return node;
         }
         if (value < node.value) {
             node.left = insert(value, node.left);
-        }
-        if (value > node.value) {
+        } else if (value > node.value) {
             node.right = insert(value, node.right);
+        } else {
+            return node;
         }
 
-        node.height = Math.max(height(node.left), height(node.right));
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
 
-        return rotate(root);
+        return rotate(node);
     }
 
     private Node rotate(Node node) {
@@ -110,8 +116,8 @@ class AVL {
         c.right = p;
         p.left = t;
 
-        p.height = Math.max(height(p.left), height(p.right) + 1);
-        c.height = Math.max(height(c.left), height(c.right) + 1);
+        p.height = Math.max(height(p.left), height(p.right)) + 1;
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
 
         return c;
     }
@@ -123,8 +129,8 @@ class AVL {
         p.left = c;
         c.right = t;
 
-        p.height = Math.max(height(p.left), height(p.right) + 1);
-        c.height = Math.max(height(c.left), height(c.right) + 1);
+        p.height = Math.max(height(p.left), height(p.right)) + 1;
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
 
         return p;
     }
