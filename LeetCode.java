@@ -6,143 +6,195 @@ import javax.xml.stream.events.Characters;
 
 public class LeetCode {
     public static void main(String[] args) {
-        // 4. Median of Two Sorted Arrays
-        // Given two sorted arrays nums1 and nums2 of size m and n respectively, return
-        // the median of the two sorted arrays.
+/*
 
-        // The overall run time complexity should be O(log (m+n)).
+         4. Median of Two Sorted Arrays
+         Given two sorted arrays nums1 and nums2 of size m and n respectively, return
+         the median of the two sorted arrays.
 
-        // Example 1:
+         The overall run time complexity should be O(log (m+n)).
 
-        // Input: nums1 = [1,3], nums2 = [2]
-        // Output: 2.00000
-        // Explanation: merged array = [1,2,3] and median is 2.
-        // Example 2:
+         Example 1:
 
-        // Input: nums1 = [1,2], nums2 = [3,4]
-        // Output: 2.50000
-        // Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
-        // int[] nums1 = { 1, 2 };
-        // int[] nums2 = { 3, 4 };
-        // System.out.println(findMedianSortedArrays(nums1, nums2));
+         Input: nums1 = [1,3], nums2 = [2]
+         Output: 2.00000
+         Explanation: merged array = [1,2,3] and median is 2.
+         Example 2:
 
-        // 14. Longest Common Prefix
-        // Easy
+         Input: nums1 = [1,2], nums2 = [3,4]
+         Output: 2.50000
+         Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+         int[] nums1 = { 1, 2 };
+         int[] nums2 = { 3, 4 };
+         System.out.println(findMedianSortedArrays(nums1, nums2));
 
-        // Write a function to find the longest common prefix string amongst an array of
-        // strings.
+         14. Longest Common Prefix
+         Easy
 
-        // If there is no common prefix, return an empty string "".
+         Write a function to find the longest common prefix string amongst an array of
+         strings.
 
-        // Example 1:
+         If there is no common prefix, return an empty string "".
 
-        // Input: strs = ["flower","flow","flight"]
-        // Output: "fl"
-        // Example 2:
+         Example 1:
 
-        // Input: strs = ["dog","racecar","car"]
-        // Output: ""
-        // Explanation: There is no common prefix among the input strings.
-        // String[] strs = { "flower", "flow", "flight" };
-        // System.out.println(longestCommonPrefix(strs));
+         Input: strs = ["flower","flow","flight"]
+         Output: "fl"
+         Example 2:
 
-        // 3. Longest Substring Without Repeating Characters
-        // Medium
+         Input: strs = ["dog","racecar","car"]
+         Output: ""
+         Explanation: There is no common prefix among the input strings.
+         String[] strs = { "flower", "flow", "flight" };
+         System.out.println(longestCommonPrefix(strs));
 
-        // Hint
-        // Given a string s, find the length of the longest substring without duplicate
-        // characters.
+         3. Longest Substring Without Repeating Characters
+         Medium
 
-        // Example 1:
+         Hint
+         Given a string s, find the length of the longest substring without duplicate
+         characters.
 
-        // Input: s = "abcabcbb"
-        // Output: 3
-        // Explanation: The answer is "abc", with the length of 3.
-        // System.out.println(lengthOfLongestSubstring(" "));
+         Example 1:
 
-        // input - "iamyymai"
-        // System.out.println(isPallindrome());
+         Input: s = "abcabcbb"
+         Output: 3
+         Explanation: The answer is "abc", with the length of 3.
+         System.out.println(lengthOfLongestSubstring(" "));
 
-        // System.out.println(isStrictlyPalindromic(9));
+         input - "iamyymai"
+         System.out.println(isPallindrome());
 
-        // 3227. Vowels Game in a String
-        // Medium
+         System.out.println(isStrictlyPalindromic(9));
 
-        // Topics
-        // premium lock icon
-        // Companies
+         3227. Vowels Game in a String
+         Medium
 
-        // Hint
-        // Alice and Bob are playing a game on a string.
+         Topics
+         premium lock icon
+         Companies
 
-        // You are given a string s, Alice and Bob will take turns playing the following
-        // game where Alice starts first:
+         Hint
+         Alice and Bob are playing a game on a string.
 
-        // On Alice's turn, she has to remove any non-empty substring from s that
-        // contains an odd number of vowels.
-        // On Bob's turn, he has to remove any non-empty substring from s that contains
-        // an even number of vowels.
-        // The first player who cannot make a move on their turn loses the game. We
-        // assume that both Alice and Bob play optimally.
+         You are given a string s, Alice and Bob will take turns playing the following
+         game where Alice starts first:
 
-        // Return true if Alice wins the game, and false otherwise.
+         On Alice's turn, she has to remove any non-empty substring from s that
+         contains an odd number of vowels.
+         On Bob's turn, he has to remove any non-empty substring from s that contains
+         an even number of vowels.
+         The first player who cannot make a move on their turn loses the game. We
+         assume that both Alice and Bob play optimally.
 
-        // The English vowels are: a, e, i, o, and u.
+         Return true if Alice wins the game, and false otherwise.
 
-        // Example 1:
+         The English vowels are: a, e, i, o, and u.
 
-        // Input: s = "leetcoder"
+         Example 1:
 
-        // Output: true
-        // System.out.println(doesAliceWin("leetcoder"));
+         Input: s = "leetcoder"
 
-        // 53. Maximum Subarray
-        // Medium
+         Output: true
+         System.out.println(doesAliceWin("leetcoder"));
 
-        // Topics
-        // premium lock icon
-        // Companies
-        // Given an integer array nums, find the subarray with the largest sum, and
-        // return its sum.
+         53. Maximum Subarray
+         Medium
 
-        // Example 1:
+         Topics
+         premium lock icon
+         Companies
+         Given an integer array nums, find the subarray with the largest sum, and
+         return its sum.
 
-        // Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-        // Output: 6
-        // Explanation: The subarray [4,-1,2,1] has the largest sum 6.
-        // int[] num = { 5, 4, -1, 7, 8 };
-        // System.out.println(maxSubArray(num));
+         Example 1:
 
-        // 125. Valid Palindrome
-        // Easy
+         Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+         Output: 6
+         Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+         int[] num = { 5, 4, -1, 7, 8 };
+         System.out.println(maxSubArray(num));
 
-        // Topics
-        // premium lock icon
-        // Companies
-        // A phrase is a palindrome if, after converting all uppercase letters into
-        // lowercase letters and removing all non-alphanumeric characters, it reads the
-        // same forward and backward. Alphanumeric characters include letters and
-        // numbers.
+         125. Valid Palindrome
+         Easy
 
-        // Given a string s, return true if it is a palindrome, or false otherwise.
+         Topics
+         premium lock icon
+         Companies
+         A phrase is a palindrome if, after converting all uppercase letters into
+         lowercase letters and removing all non-alphanumeric characters, it reads the
+         same forward and backward. Alphanumeric characters include letters and
+         numbers.
 
-        // Example 1:
+         Given a string s, return true if it is a palindrome, or false otherwise.
 
-        // Input: s = "A man, a plan, a canal: Panama"
-        // Output: true
-        // Explanation: "amanaplanacanalpanama" is a palindrome.
+         Example 1:
+
+         Input: s = "A man, a plan, a canal: Panama"
+         Output: true
+         Explanation: "amanaplanacanalpanama" is a palindrome.
         System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+
+
+        5. Longest Palindromic Substring
+
+        Example 1:
+        Input: s = "babad"
+        Output: "bab"
+        Explanation: "aba" is also a valid answer.
+
+        System.out.println(longestPallindrome("cbbd"));
+ */
+
+
 
     }
 
+    public static String longestPallindrome(String s) {
+
+        if (s.isEmpty() || s.length() < 2) {
+            return s;
+        }
+
+        int start = 0;
+        int maxLength = 0;
+        char[] s1 = s.toCharArray();
+
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expandAroundCenter(s1, i, i);     // Odd-length case
+            int len2 = expandAroundCenter(s1, i, i + 1); //even length case
+
+            int curMax = Math.max(len1, len2);
+
+            if (curMax > maxLength) {
+                maxLength = curMax;
+
+                start = i - (maxLength - 1) / 2;
+            }
+        }
+
+
+        return s.substring(start, start + maxLength);
+    }
+
+    public static int expandAroundCenter(char[] s, int left, int right) {
+
+        while (left >= 0 && right < s.length && s[left] == s[right]) {
+            left--;
+            right++;
+        }
+
+        return right - left - 1;
+    }
+
     public static boolean isPalindrome(String s) {
-        String cString = s.replaceAll("[^a-zA-Z0-9]","" ).toLowerCase();
+        String cString = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        int left = 0 ;
-        int right = cString.length()-1;
+        int left = 0;
+        int right = cString.length() - 1;
 
-        while (left < right){
-            if(cString.charAt(left) != cString.charAt(right)){
+        while (left < right) {
+            if (cString.charAt(left) != cString.charAt(right)) {
                 return false;
             }
 
