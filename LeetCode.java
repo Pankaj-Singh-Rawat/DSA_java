@@ -144,10 +144,36 @@ public class LeetCode {
         Explanation: "aba" is also a valid answer.
 
         System.out.println(longestPallindrome("cbbd"));
+
+
+        9. Palindrome Number
+
+        Example 1:
+
+        Input: x = 121
+        Output: true
+        Explanation: 121 reads as 121 from left to right and from right to left.
+
+        System.out.println(isPalindrome(121));
  */
 
 
+    }
 
+    public static boolean isPalindrome(int x) {
+        int sum = 0;
+        int num = x;
+        while (x > 0) {
+            int temp = x % 10;
+            x = x / 10;
+            sum = (sum * 10) + temp;
+        }
+
+        if(num == sum ){
+            return true;
+        }
+
+        return false;
     }
 
     public static String longestPallindrome(String s) {
