@@ -221,9 +221,37 @@ public class LeetCode {
 
         Input: nums = [1,1,5]
         Output: [1,5,1]
- */
+
         int[] nums = {1, 1, 5};
         nextPermutation(nums);
+
+        26. Remove Duplicates from Sorted Array
+
+        Example 1:
+
+        Input: nums = [1,1,2]
+        Output: 2, nums = [1,2,_]
+
+        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+        System.out.println(removeDuplicates(nums));
+ */
+    }
+
+    public static int removeDuplicates(int[] nums) {
+        int left = 0;
+        int right = 1;
+        while (right < nums.length) {
+            if (nums[right] == nums[left]) {
+                    right++;
+            }else{
+                left++;
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                right++;
+            }
+        }
+        return left + 1;
     }
 
     public static void nextPermutation(int[] nums) {
