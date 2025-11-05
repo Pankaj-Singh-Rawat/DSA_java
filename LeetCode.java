@@ -242,9 +242,9 @@ public class LeetCode {
         Example 2:
         Input: nums = [1,3,5,6], target = 2
         Output: 1
- */
         int[] nums = {1,3,5,6};
         System.out.println(searchInsert(nums, 7));
+ */
     }
 
     public static int searchInsert(int[] nums, int target) {
