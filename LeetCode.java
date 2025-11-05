@@ -234,7 +234,27 @@ public class LeetCode {
 
         int[] nums = {0,0,1,1,1,2,2,3,3,4};
         System.out.println(removeDuplicates(nums));
+
+        35. Search Insert Position
+        Example 1:
+        Input: nums = [1,3,5,6], target = 5
+        Output: 2
+        Example 2:
+        Input: nums = [1,3,5,6], target = 2
+        Output: 1
  */
+        int[] nums = {1,3,5,6};
+        System.out.println(searchInsert(nums, 7));
+    }
+
+    public static int searchInsert(int[] nums, int target) {
+
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] >= target){
+                return i;
+            }
+        }
+        return nums.length;
     }
 
     public static int removeDuplicates(int[] nums) {
