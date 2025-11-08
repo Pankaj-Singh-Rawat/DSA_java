@@ -250,7 +250,7 @@ public class LeetCode {
     public static int searchInsert(int[] nums, int target) {
 
         for (int i = 0; i < nums.length; i++) {
-            if(nums[i] >= target){
+            if (nums[i] >= target) {
                 return i;
             }
         }
@@ -262,8 +262,8 @@ public class LeetCode {
         int right = 1;
         while (right < nums.length) {
             if (nums[right] == nums[left]) {
-                    right++;
-            }else{
+                right++;
+            } else {
                 left++;
                 int temp = nums[left];
                 nums[left] = nums[right];
