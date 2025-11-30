@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] arr = {12,23,3,44,65,7};
+        int[] arr = {12, 23, 3, 44, 65, 7};
         System.out.println(selectionSort(arr));
     }
 
@@ -27,13 +27,13 @@ public class SelectionSort {
         for (int i = 0; i < size; i++) {
             int minIndex = i;
 
-            for (int j = i+1; j < size + 1; j++) {
-                if(arr[j] < arr[minIndex]){
+            for (int j = i + 1; j < size + 1; j++) {
+                if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
             }
 
-            if(minIndex != i){
+            if (minIndex != i) {
                 int temp = arr[minIndex];
                 arr[minIndex] = arr[i];
                 arr[i] = temp;
