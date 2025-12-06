@@ -18,9 +18,10 @@ Recursively quicksort the right subarray
 Base case: arrays of size 0 or 1 are already sorted
 
 Time Complexity:
-Best:O(n log n)
-Avg:O(n log n)
-Worst:O(n²)
+Best: O(n log n)
+Avg: O(n log n)
+Worst: O(n²)
+
  */
 public class QuickSort {
 
