@@ -11,7 +11,7 @@ The core idea is:
 
 Time Complexity:
 1. Best Case	O(1)
-2. Worst Case	O(n)
+2. Worst Case	O(n),n
 3. Average Case	O(n)
 
  */
