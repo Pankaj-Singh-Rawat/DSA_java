@@ -16,7 +16,7 @@ reserve a lot of memory on empty Array elements for edges that don't exist.
 */
 public class AdjacencyMatrix {
     // why a static method ?
-    // cause it definitely runs for the very first time when the program executes
+    // cause it does not need a object to be created
     static ArrayList<ArrayList<Integer>> createGraph(int V, int[][] edges){
 //        ArrayList is Row and <ArrayList<Integers> is column
         ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
