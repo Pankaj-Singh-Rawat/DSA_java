@@ -48,11 +48,11 @@ public class AdjacencyMatrix {
     public static void main(String[] args) {
 
         int V = 3;
-         int[][] edges = {
-                 {0,1},
-                 {0,2},
-                 {1,2}
-         };
+        int[][] edges = {
+                {0,1},
+                {0,2},
+                {1,2}
+        };
 
         ArrayList<ArrayList<Integer>> mat = createGraph(V,edges);
 
