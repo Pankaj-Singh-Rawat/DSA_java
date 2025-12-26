@@ -1,8 +1,6 @@
 package Graph;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /*
@@ -18,7 +16,7 @@ reserve a lot of memory on empty Array elements for edges that don't exist.
 */
 public class AdjacencyMatrix {
     // why a static method ?
-    // cause it definitely runs for the very first time when the program executes
+    // cause it does not need a object to be created
     static ArrayList<ArrayList<Integer>> createGraph(int V, int[][] edges){
 //        ArrayList is Row and <ArrayList<Integers> is column
         ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
@@ -48,11 +46,11 @@ public class AdjacencyMatrix {
     public static void main(String[] args) {
 
         int V = 3;
-         int[][] edges = {
-                 {0,1},
-                 {0,2},
-                 {1,2}
-         };
+        int[][] edges = {
+                {0,1},
+                {0,2},
+                {1,2}
+        };
 
         ArrayList<ArrayList<Integer>> mat = createGraph(V,edges);
 
