@@ -2,7 +2,7 @@ package heap;
 
 // Max Heap
 /*
-Implementing a Max-Heap is identical to implementation of min heap just one fundamental difference i.e. the parent must always be greater than or equal to it's children.
+Implementing a Max-Heap is identical to implementation of min heap just one fundamental difference i.e. the parent must always be greater than or equal to its children.
  */
 
 public class MaxHeap {
