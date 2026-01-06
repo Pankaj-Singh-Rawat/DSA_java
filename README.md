@@ -33,6 +33,7 @@ All implementations prioritize **clarity, logic, and learning**.
 ├── 🧩 Strings             # Sliding Window, Two Pointers, Kadane's Algorithm
 ├── 🔄 Recursion           # Recursive patterns and Backtracking
 └── 💡 LeetCode            # Solutions to various competitive programming problems
+```
 
 ---
 
@@ -135,3 +136,4 @@ All implementations prioritize **clarity, logic, and learning**.
 ```bash
 javac FileName.java
 java FileName
+```
