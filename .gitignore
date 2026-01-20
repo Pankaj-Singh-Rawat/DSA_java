@@ -1,1 +1,3 @@
-FileHandeling.class
+*.class
+*.idea/
+out/

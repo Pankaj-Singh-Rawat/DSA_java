@@ -244,7 +244,38 @@ public class LeetCode {
         Output: 1
         int[] nums = {1,3,5,6};
         System.out.println(searchInsert(nums, 7));
+
+        LeetCode - 28
+        Given two strings needle and haystack, return the index of the first
+        occurrence of needle in haystack, or -1 if needle is not part of haystack.
+        Input: haystack = "sadbutsad", needle = "sad"
+        Output: 0
+        Explanation: "sad" occurs at index 0 and 6.
+        The first occurrence is at index 0, so we return 0.
  */
+
+
+        String needle = "a";
+        String haystack = "a";
+        System.out.println(strStr(haystack, needle));
+    }
+
+    public static int strStr(String haystack, String needle) {
+
+        int hLen = haystack.length();
+        int nLen = needle.length();
+
+        if (hLen < nLen) {
+            return -1;
+        }
+
+        for (int i = 0; i <= hLen - nLen; i++) {
+            if (haystack.substring(i, i + nLen).equals(needle)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public static int searchInsert(int[] nums, int target) {
