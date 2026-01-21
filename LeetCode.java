@@ -264,10 +264,10 @@ public class LeetCode {
         Input: s = ["h","e","l","l","o"]
     `   Output: ["o","l","l","e","h"]
 
+        char[] input = {'h','e','l','l','o'};
  */
 
-        char[] input = {'h','e','l','l','o'};
-        System.out.println(reverseString(input));
+
     }
 
     public static void reverseString(char[] s) {
