@@ -252,12 +252,35 @@ public class LeetCode {
         Output: 0
         Explanation: "sad" occurs at index 0 and 6.
         The first occurrence is at index 0, so we return 0.
- */
-
 
         String needle = "a";
         String haystack = "a";
         System.out.println(strStr(haystack, needle));
+
+        Problem - 344
+        Write a function that reverses a string. The input string is given as an array of characters s.
+        You must do this by modifying the input array in-place with O(1) extra memory.
+
+        Input: s = ["h","e","l","l","o"]
+    `   Output: ["o","l","l","e","h"]
+
+ */
+
+        char[] input = {'h','e','l','l','o'};
+        System.out.println(reverseString(input));
+    }
+
+    public static void reverseString(char[] s) {
+        int left = 0;
+        int right = s.length - 1;
+
+        while(left < right) {
+            char c = s[left];
+            s[left] = s[right];
+            s[right] = c;
+            left++;
+            right--;
+        }
     }
 
     public static int strStr(String haystack, String needle) {
