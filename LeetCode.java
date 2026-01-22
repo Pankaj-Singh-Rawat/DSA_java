@@ -265,9 +265,31 @@ public class LeetCode {
     `   Output: ["o","l","l","e","h"]
 
         char[] input = {'h','e','l','l','o'};
+
+        Problem - 345
+        Reverse Vowels of a String
+        Given a string s, reverse only all the vowels in the string and return it.
+        The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+        Input: s = "IceCreAm"
+        Output: "AceCreIm"
+        Explanation:
+        The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
+
+
+
+
  */
 
+        String input = "IceCream";
+        System.out.println(reverseVowels(input));
 
+
+    }
+
+    public static String reverseVowels(String s) {
+        // do for Vowels only not all characters
+
+        return s;
     }
 
     public static void reverseString(char[] s) {
