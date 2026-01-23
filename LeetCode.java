@@ -1,6 +1,8 @@
+import java.lang.classfile.instruction.CharacterRange;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Stack;
 
 import javax.xml.stream.events.Characters;
 
@@ -276,11 +278,41 @@ public class LeetCode {
         Explanation:
         The vowels in s are ['I', 'e', 'e', 'A']. On reversing the vowels, s becomes "AceCreIm".
 
+        Problem - 844
+        Given two strings s and t, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
+        Note that after backspacing an empty text, the text will continue empty.
+
+        Input: s = "ab#c", t = "ad#c"
+        Output: true
+        Explanation: Both s and t become "ac".
 
 
  */
 
+        String s = "ab#c";
+        String t = "ad#c";
+        System.out.println(backspaceCompare(s,t));
 
+
+    }
+
+    public static boolean backspaceCompare(String s, String t) {
+        return build(s).equals(build(t));
+    }
+
+    public static Stack<Character> build(String s) {
+
+        Stack<Character> stack1 = new Stack<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) != '#') {
+                stack1.push(s.charAt(i));
+            } else if(!stack1.isEmpty()) {
+                stack1.pop();
+            }
+        }
+
+        return stack1;
     }
 
     public static String reverseVowels(String s) {
