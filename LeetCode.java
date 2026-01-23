@@ -270,6 +270,7 @@ public class LeetCode {
         Reverse Vowels of a String
         Given a string s, reverse only all the vowels in the string and return it.
         The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower and upper cases, more than once.
+
         Input: s = "IceCreAm"
         Output: "AceCreIm"
         Explanation:
@@ -277,19 +278,44 @@ public class LeetCode {
 
 
 
-
  */
-
-        String input = "IceCream";
-        System.out.println(reverseVowels(input));
 
 
     }
 
     public static String reverseVowels(String s) {
         // do for Vowels only not all characters
+        char[] str = s.toCharArray();
+        int left = 0;
+        int right = str.length -1;
 
-        return s;
+        while(left < right) {
+            if (!checkVowels(str[left])) {
+                left++;
+                continue;
+            }
+            if (!checkVowels(str[right])) {
+                right--;
+                continue;
+            }
+
+            char temp = str[left];
+            str[left] = str[right];
+            str[right] = temp;
+
+            left++;
+            right--;
+        }
+        return String.valueOf(str);
+
+    }
+
+    public static boolean checkVowels(char c) {
+        return switch (Character.toLowerCase(c)) {
+            case 'a', 'e', 'i', 'o', 'u' -> true;
+            default -> false;
+        };
+
     }
 
     public static void reverseString(char[] s) {
