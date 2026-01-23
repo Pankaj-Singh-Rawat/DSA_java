@@ -1,8 +1,5 @@
 import java.lang.classfile.instruction.CharacterRange;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 import javax.xml.stream.events.Characters;
 
@@ -286,14 +283,67 @@ public class LeetCode {
         Output: true
         Explanation: Both s and t become "ac".
 
-
- */
-
         String s = "ab#c";
         String t = "ad#c";
         System.out.println(backspaceCompare(s,t));
 
+        Problem 234
 
+        Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+        Input: head = [1,2,2,1]
+        Output: true
+ */
+
+
+
+    }
+
+    public static boolean isPalindrome(ListNode head) {
+        if(head == null || head.next == null) return true;
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode prev = null;
+        while(slow != null) {
+            ListNode nextTemp = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = nextTemp;
+        }
+
+        ListNode left = head;
+        ListNode right = prev;
+        while(right != null) {
+            if(left.val != right.val) return false;
+            left = left.next;
+            right = right.next;
+        }
+
+        return true;
+    }
+
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
     public static boolean backspaceCompare(String s, String t) {
