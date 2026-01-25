@@ -293,10 +293,40 @@ public class LeetCode {
 
         Input: head = [1,2,2,1]
         Output: true
+
+        Problem - 925
+        Your friend is typing his name into a keyboard. Sometimes, when typing a character c, the key might get long pressed, and the character will be typed 1 or more times.
+
+        You examine the typed characters of the keyboard. Return True if it is possible that it was your friends name, with some characters (possibly none) being long pressed.
+
+        Input: name = "alex", typed = "aaleex"
+        Output: true
+        Explanation: 'a' and 'e' in 'alex' were long pressed.
  */
 
+        String name = "alex", typed = "aalex";
+        System.out.println(isLongPressedName(name, typed));
+
+    }
+
+    public static boolean isLongPressedName(String name, String typed) {
+
+        int np = 0;
+        int tp = 0;
+
+        while(tp < typed.length()) {
+            if(np < name.length() && name.charAt(np) == typed.charAt(tp)) {
+                np++;
+                tp++;
+            } else if (tp > 0 && typed.charAt(tp - 1) == typed.charAt(tp)) {
+                tp++;
+            } else {
+                return false;
+            }
+        }
 
 
+        return np == name.length();
     }
 
     public static boolean isPalindrome(ListNode head) {
