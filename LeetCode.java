@@ -1,4 +1,5 @@
 import java.lang.classfile.instruction.CharacterRange;
+import java.lang.reflect.Array;
 import java.util.*;
 
 import javax.xml.stream.events.Characters;
@@ -314,28 +315,70 @@ public class LeetCode {
         Input: s = "A man, a plan, a canal: Panama"
         Output: true
         Explanation: "amanaplanacanalpanama" is a palindrome.
- */
 
         String input = "A man, a plan, a canal: Panama";
         System.out.println(isPalindrome1(input));
 
+        Problem - 567
+        Given two strings s1 and s2, return true if s2 contains a permutation of s1, or false otherwise.
+        In other words, return true if one of s1's permutations is the substring of s2.
+
+        Example 1:
+        Input: s1 = "ab", s2 = "eidbaooo"
+        Output: true
+        Explanation: s2 contains one permutation of s1 ("ba").
+
+        String s1 = "pankaj", s2 = "";
+        System.out.println(checkPermutation(s1,s2));
+ */
+
+    }
+
+    public static boolean checkPermutation(String s1, String s2) {
+        if(s1.length() > s2.length()) return  false;
+
+        int[] arr1 = new int[26];
+        int[] arr2 = new int[26];
+
+        for (int j = 0; j < s1.length(); j++) {
+            arr1[s1.charAt(j) - 'a']++;
+            arr2[s2.charAt(j) - 'a']++;
+        }
+
+        for (int i = 0; i < s2.length() - s1.length(); i++) {
+            if(matches(arr1, arr2)) return true;
+
+            arr2[s2.charAt(i + s1.length()) - 'a']++;
+            arr2[s2.charAt(i) - 'a']--;
+        }
+
+        return matches(arr1, arr2);
+    }
+    
+    public static boolean matches(int[] s1, int[] s2) {
+        for (int i = 0; i < 26; i++) {
+            if(s1[i] != s2[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean isPalindrome1(String s) {
         int left = 0;
-        int right = s.length() -1;
+        int right = s.length() - 1;
 
-        while(left < right) {
-            if(!Character.isLetterOrDigit(s.charAt(left))) {
-                left ++;
+        while (left < right) {
+            if (!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
             } else if (!Character.isLetterOrDigit(s.charAt(right))) {
-                right --;
+                right--;
             } else {
-                if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                     return false;
                 }
-                left ++;
-                right --;
+                left++;
+                right--;
             }
         }
 
@@ -348,8 +391,8 @@ public class LeetCode {
         int np = 0;
         int tp = 0;
 
-        while(tp < typed.length()) {
-            if(np < name.length() && name.charAt(np) == typed.charAt(tp)) {
+        while (tp < typed.length()) {
+            if (np < name.length() && name.charAt(np) == typed.charAt(tp)) {
                 np++;
                 tp++;
             } else if (tp > 0 && typed.charAt(tp - 1) == typed.charAt(tp)) {
@@ -364,18 +407,18 @@ public class LeetCode {
     }
 
     public static boolean isPalindrome(ListNode head) {
-        if(head == null || head.next == null) return true;
+        if (head == null || head.next == null) return true;
 
         ListNode slow = head;
         ListNode fast = head;
 
-        while(fast != null && fast.next != null) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
 
         ListNode prev = null;
-        while(slow != null) {
+        while (slow != null) {
             ListNode nextTemp = slow.next;
             slow.next = prev;
             prev = slow;
@@ -384,8 +427,8 @@ public class LeetCode {
 
         ListNode left = head;
         ListNode right = prev;
-        while(right != null) {
-            if(left.val != right.val) return false;
+        while (right != null) {
+            if (left.val != right.val) return false;
             left = left.next;
             right = right.next;
         }
@@ -419,9 +462,9 @@ public class LeetCode {
         Stack<Character> stack1 = new Stack<>();
 
         for (int i = 0; i < s.length(); i++) {
-            if(s.charAt(i) != '#') {
+            if (s.charAt(i) != '#') {
                 stack1.push(s.charAt(i));
-            } else if(!stack1.isEmpty()) {
+            } else if (!stack1.isEmpty()) {
                 stack1.pop();
             }
         }
@@ -433,9 +476,9 @@ public class LeetCode {
         // do for Vowels only not all characters
         char[] str = s.toCharArray();
         int left = 0;
-        int right = str.length -1;
+        int right = str.length - 1;
 
-        while(left < right) {
+        while (left < right) {
             if (!checkVowels(str[left])) {
                 left++;
                 continue;
@@ -468,7 +511,7 @@ public class LeetCode {
         int left = 0;
         int right = s.length - 1;
 
-        while(left < right) {
+        while (left < right) {
             char c = s[left];
             s[left] = s[right];
             s[right] = c;
