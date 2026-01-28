@@ -26,7 +26,20 @@ public class Main {
         System.out.println(clearIthBit(10, 1)); // 10,1 -> 1010 -> 1000 (changed 1st bit to 0)
         System.out.println(updateIthBit(10,3)); // 10,3 -> 1010 -> 0010 (changed the 3rd bit)
         System.out.println(clearLastIBits(15,2)); // 15,2 -> 1111 -> 1100 (cleared last 2 bits)
+        swap2Nums(10,5);
+        System.out.println(increaseByOne(10));
+    }
 
+    public static void swap2Nums(int a, int b) {
+        a = a^b; // a -> 1010^101 -> 1111 -> 15
+        b = a^b; // b -> 1111^101 -> 1010 -> 10
+        a = a^b; // a -> 1111^1010 -> 101 -> 5
+        System.out.println("a = " + a + " and b = " + b);
+        System.out.println();
+    }
+
+    public static int increaseByOne(int a) {
+        return -~a;
     }
 
     // clear last i bits
