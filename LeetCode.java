@@ -352,12 +352,70 @@ public class LeetCode {
         Output: 2, nums = [1,2,_]
         Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
         It does not matter what you leave beyond the returned k (hence they are underscores).
- */
 
         int[] arr = {0,0,1,1,1,2,2,3,3,4};
         System.out.println(removeDuplicates1(arr));
 
+        Problem - 27:
+        Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+        Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+        Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+        Return k.
 
+        Example 1:
+        Input: nums = [3,2,2,3], val = 3
+        Output: 2, nums = [2,2,_,_]
+        Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+        It does not matter what you leave beyond the returned k (hence they are underscores).
+
+        int[] nums = {0,1,2,2,3,0,4,2};
+        int val = 2;
+        System.out.println(removeElement1(nums, val));
+
+        Problem - 35. Search Insert Position
+
+        Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+        You must write an algorithm with O(log n) runtime complexity.
+
+        Example 1:
+        Input: nums = [1,3,5,6], target = 5
+        Output: 2
+ */
+        int[] nums = {1,3,5,6}; int target = 7;
+        System.out.println(searchInsert1(nums, target));
+
+    }
+
+    public static int searchInsert1(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while(left <= right) {
+            int mid = left + (right - left) /2;
+            if(nums[mid] == target) {
+                return mid;
+            } else if(nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return left;
+    }
+
+    public static int removeElement1(int[] nums, int val) {
+        int left = 0;
+        int count = 0;
+        while (left < nums.length) {
+            if( nums[left] != val ) {
+                nums[count] = nums[left];
+                count++;
+            }
+            left++;
+        }
+
+        return count;
     }
 
     public static int removeDuplicates1(int[] nums) {
