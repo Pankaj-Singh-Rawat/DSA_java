@@ -380,11 +380,38 @@ public class LeetCode {
         Example 1:
         Input: nums = [1,3,5,6], target = 5
         Output: 2
- */
+
         int[] nums = {1,3,5,6}; int target = 7;
         System.out.println(searchInsert1(nums, target));
 
+        Problem - 53:
+        Given an integer array nums, find the subarray with the largest sum, and return its sum.
+
+        Example 1:
+        Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+        Output: 6
+        Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+ */
+
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        System.out.println(maxSubArray1(nums));
+
+
     }
+
+    private static int maxSubArray1(int[] nums) {
+        // Kayden's Algprithm
+        int maxOfTwo = nums[0];
+        int theMax = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            maxOfTwo = Math.max(maxOfTwo + nums[i], nums[i]);
+            theMax = Math.max(maxOfTwo, theMax);
+        }
+
+        return theMax;
+    }
+
 
     public static int searchInsert1(int[] nums, int target) {
         int left = 0;
